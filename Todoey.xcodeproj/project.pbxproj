@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B0FB3E8C26F64D6900CDB2DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB3E8B26F64D6900CDB2DF /* AppDelegate.swift */; };
 		B0FB3E8E26F64D6900CDB2DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB3E8D26F64D6900CDB2DF /* SceneDelegate.swift */; };
-		B0FB3E9026F64D6900CDB2DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB3E8F26F64D6900CDB2DF /* ViewController.swift */; };
+		B0FB3E9026F64D6900CDB2DF /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB3E8F26F64D6900CDB2DF /* TodoListViewController.swift */; };
 		B0FB3E9326F64D6900CDB2DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E9126F64D6900CDB2DF /* Main.storyboard */; };
 		B0FB3E9526F64D6B00CDB2DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E9426F64D6B00CDB2DF /* Assets.xcassets */; };
 		B0FB3E9826F64D6B00CDB2DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0FB3E9626F64D6B00CDB2DF /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		B0FB3E8826F64D6900CDB2DF /* Todoey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todoey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FB3E8B26F64D6900CDB2DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0FB3E8D26F64D6900CDB2DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B0FB3E8F26F64D6900CDB2DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B0FB3E8F26F64D6900CDB2DF /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		B0FB3E9226F64D6900CDB2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0FB3E9426F64D6B00CDB2DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0FB3E9726F64D6B00CDB2DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				B0FB3E8B26F64D6900CDB2DF /* AppDelegate.swift */,
 				B0FB3E8D26F64D6900CDB2DF /* SceneDelegate.swift */,
-				B0FB3E8F26F64D6900CDB2DF /* ViewController.swift */,
+				B0FB3E8F26F64D6900CDB2DF /* TodoListViewController.swift */,
 				B0FB3E9126F64D6900CDB2DF /* Main.storyboard */,
 				B0FB3E9426F64D6B00CDB2DF /* Assets.xcassets */,
 				B0FB3E9626F64D6B00CDB2DF /* LaunchScreen.storyboard */,
@@ -98,6 +98,7 @@
 				TargetAttributes = {
 					B0FB3E8726F64D6900CDB2DF = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -137,7 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0FB3E9026F64D6900CDB2DF /* ViewController.swift in Sources */,
+				B0FB3E9026F64D6900CDB2DF /* TodoListViewController.swift in Sources */,
 				B0FB3E8C26F64D6900CDB2DF /* AppDelegate.swift in Sources */,
 				B0FB3E8E26F64D6900CDB2DF /* SceneDelegate.swift in Sources */,
 			);
@@ -286,6 +287,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SJJJCP34LR;
 				INFOPLIST_FILE = Todoey/Info.plist;
@@ -295,6 +297,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.maqasta.Todoey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -305,6 +308,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SJJJCP34LR;
 				INFOPLIST_FILE = Todoey/Info.plist;
