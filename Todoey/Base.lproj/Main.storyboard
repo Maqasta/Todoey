@@ -30,7 +30,14 @@
                             <outlet property="delegate" destination="bkm-Kj-8VO" id="lRP-b3-oIe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Todoey" id="fJL-lA-Zwp"/>
+                    <navigationItem key="navigationItem" title="Todoey" id="fJL-lA-Zwp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9eA-vy-Oyo">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="bkm-Kj-8VO" id="dlL-Jo-Ieh"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1S0-6o-hDS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,7 +46,6 @@
         <!--Navigation Controller-->
         <scene sceneID="efl-gF-dPD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="D9N-wg-ViO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cyb-ff-aHd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LbZ-wm-1jp">
@@ -55,6 +61,7 @@
                         <segue destination="bkm-Kj-8VO" kind="relationship" relationship="rootViewController" id="pfG-x3-wag"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D9N-wg-ViO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="600" y="75"/>
         </scene>
