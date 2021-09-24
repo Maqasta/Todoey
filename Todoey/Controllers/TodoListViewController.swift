@@ -15,12 +15,23 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let item = defaults.array(forKey: "TodoListArray") as? [Item] {
-            itemArray = item
-            var newItem = Item(title: "fristy", done: false)
-            itemArray.append(newItem)
-            itemArray.append(newItem)
-        }
+       
+//        if let item = defaults.array(forKey: "TodoListArray") as? [Item] {
+//            itemArray = item
+//
+//        }
+        
+        var newItem = Item()
+        newItem.title = "First"
+        itemArray.append(newItem)
+        
+        var newItem2 = Item()
+        newItem2.title = "Second"
+        itemArray.append(newItem2)
+        
+        var newItem3 = Item()
+        newItem3.title = "Third"
+        itemArray.append(newItem3)
     }
 
     // MARK: - Tableview Datasource Methods
@@ -38,15 +49,14 @@ class TodoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
-        print(indexPath)
+    
         if itemArray[indexPath.row].done == true {
-            itemArray[indexPath.row].done = false
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         } else {
-            itemArray[indexPath.row].done = true
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
+        
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
