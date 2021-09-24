@@ -9,14 +9,17 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
 
-    var itemArray = ["Write letter", "Watch lesson", "Complete todoe app"]
+    var itemArray = [Item]()
     let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let item = defaults.array(forKey: "TodoListArray") as? [String] {
+        if let item = defaults.array(forKey: "TodoListArray") as? [Item] {
             itemArray = item
+            var newItem = Item(title: "fristy", done: false)
+            itemArray.append(newItem)
+            itemArray.append(newItem)
         }
     }
 
@@ -29,17 +32,19 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         
-        cell.textLabel?.text = itemArray[indexPath.row]
+        cell.textLabel?.text = itemArray[indexPath.row].title
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
-        
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+        print(indexPath)
+        if itemArray[indexPath.row].done == true {
+            itemArray[indexPath.row].done = false
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
         } else {
+            itemArray[indexPath.row].done = true
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         }
         
@@ -53,11 +58,10 @@ class TodoListViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Add New Todoey Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { UIAlertAction in
-            if textfield.text! != "" {
-                self.itemArray.append(textfield.text!)
-                self.defaults.set(self.itemArray, forKey: "TodoListArray")
-                self.tableView.reloadData()
-            }
+            guard textfield.text! != "" else { return }
+            self.itemArray.append(Item(title: textfield.text!))
+            self.defaults.set(self.itemArray, forKey: "TodoListArray")
+            self.tableView.reloadData()
         }
         
         alert.addTextField { allertTextField in
