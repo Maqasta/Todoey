@@ -15,12 +15,6 @@ class TodoListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-//        if let item = defaults.array(forKey: "TodoListArray") as? [Item] {
-//            itemArray = item
-//
-//        }
-        
         var newItem = Item()
         newItem.title = "First"
         itemArray.append(newItem)
@@ -32,6 +26,10 @@ class TodoListViewController: UITableViewController {
         var newItem3 = Item()
         newItem3.title = "Third"
         itemArray.append(newItem3)
+        
+        if let item = defaults.array(forKey: "TodoListArray") as? [Item] {
+            itemArray = item
+        }
     }
 
     // MARK: - Tableview Datasource Methods
@@ -49,12 +47,8 @@ class TodoListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-        if itemArray[indexPath.row].done == true {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+       
+        tableView.cellForRow(at: indexPath)?.accessoryType = itemArray[indexPath.row].done ? .none : .checkmark
         
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         
