@@ -93,9 +93,9 @@
 			children = (
 				B0FB3E8B26F64D6900CDB2DF /* AppDelegate.swift */,
 				B0FB3E8D26F64D6900CDB2DF /* SceneDelegate.swift */,
-				B0E11DC926FE582D00835130 /* Data Model */,
-				B0E11DCA26FE584500835130 /* Views */,
 				B0E11DCB26FE585700835130 /* Controllers */,
+				B0E11DCA26FE584500835130 /* Views */,
+				B0E11DC926FE582D00835130 /* Data Model */,
 				B0E11DCC26FE58BD00835130 /* Supporting Files */,
 				B0FB3E9926F64D6B00CDB2DF /* Info.plist */,
 			);
