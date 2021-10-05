@@ -16,6 +16,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
+       
         loadCategories()
     }
     
@@ -36,11 +37,19 @@ class CategoryViewController: UITableViewController {
     // MARK: Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        context.delete(categoryArray[indexPath.row])
-        categoryArray.remove(at: indexPath.row)
-        
+//        context.delete(categoryArray[indexPath.row])
+//        categoryArray.remove(at: indexPath.row)
+        performSegue(withIdentifier: "goToItems", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
         saveCategories()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVS = segue.destination as! TodoListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVS.selectedCategory = categoryArray[indexPath.row]
+        }
     }
     
     // MARK: - Add new category Method
