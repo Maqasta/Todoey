@@ -2,7 +2,7 @@
 
 ## Goal
 
-I will make e 3 different branches with one application, but implemented with different databases (UserDefaults, Core Data and Realm)
+I will make 3 different branches with one application, but implemented with different databases (UserDefaults, Core Data and Realm)
 
 ## What I will create
 
