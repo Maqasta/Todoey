@@ -12,7 +12,6 @@ import ChameleonFramework
 class CategoryViewController: SwipeTableViewController {
     
     let realm = try! Realm()
-    
     var categoryArray: Results<Category>?
     
     override func viewDidLoad() {
@@ -37,9 +36,9 @@ class CategoryViewController: SwipeTableViewController {
         
         if let category = categoryArray?[indexPath.row] {
             guard let categoryColour = UIColor(hexString: category.colour!) else {fatalError()}
-                    cell.backgroundColor = categoryColour
-                    cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
-                }
+            cell.backgroundColor = categoryColour
+            cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
+        }
         
         return cell
     }
@@ -106,7 +105,6 @@ class CategoryViewController: SwipeTableViewController {
         } catch  {
             print("Error saving category \(error)")
         }
-        
         tableView.reloadData()
     }
     

@@ -10,10 +10,9 @@ import RealmSwift
 import ChameleonFramework
 
 class TodoListViewController: SwipeTableViewController {
-    
     @IBOutlet weak var searchBar: UISearchBar!
-    let realm = try! Realm()
     
+    let realm = try! Realm()
     var todoItems: Results<Item>?
     var selectedCategory: Category? {
         didSet {
@@ -28,6 +27,7 @@ class TodoListViewController: SwipeTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        //MARK: NavBar view
         if let colourHex = selectedCategory?.colour {
             title = selectedCategory!.name
             guard let navBar = navigationController?.navigationBar else { fatalError("Navigation controller does not exist.")
@@ -39,11 +39,12 @@ class TodoListViewController: SwipeTableViewController {
                 navBar.backgroundColor = navBarColour
                 navBar.tintColor = ContrastColorOf(navBarColour, returnFlat: true)
                 
+                //MARK: searchBar view
                 searchBar.barTintColor = navBarColour
                 if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
                     textfield.backgroundColor = ContrastColorOf(navBarColour, returnFlat: true)
                     textfield.textColor = navBarColour
-
+                    
                     if let leftView = textfield.leftView as? UIImageView {
                         leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
                         leftView.tintColor = navBarColour
@@ -52,8 +53,8 @@ class TodoListViewController: SwipeTableViewController {
             }
         }
     }
-    // MARK: - Tableview Datasource Methods
     
+    // MARK: - Tableview Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoItems?.count ?? 1
     }
@@ -63,7 +64,7 @@ class TodoListViewController: SwipeTableViewController {
         
         if let item = todoItems?[indexPath.row] {
             cell.textLabel?.text = item.title
-            if let colour = UIColor(hexString: selectedCategory!.colour!)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(todoItems!.count)) {
+            if let colour = UIColor(hexString: selectedCategory!.colour!)?.darken(byPercentage: CGFloat(indexPath.row) / CGFloat(todoItems!.count+1)) {
                 cell.backgroundColor = colour
                 cell.textLabel?.textColor = ContrastColorOf(colour, returnFlat: true)
             }
@@ -81,7 +82,6 @@ class TodoListViewController: SwipeTableViewController {
             do {
                 try self.realm.write {
                     self.realm.delete(itemForDeletion)
-                    tableView.reloadData()
                 }
             } catch {
                 print("Error deleting category, \(error)")
@@ -115,7 +115,6 @@ class TodoListViewController: SwipeTableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { UIAlertAction in
             
             guard textfield.text! != "" && self.selectedCategory != nil else { return }
-            
             do {
                 try self.realm.write {
                     let newItem = Item()
