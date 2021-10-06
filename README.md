@@ -10,5 +10,6 @@ I will make 3 different branches with one application, but implemented with diff
 
 ## Libraries
 
-RealmSwift - mobile database is an open source, developer-friendly alternative to CoreData and SQLite
-SwipeCellKit - swipeable UITableViewCell/UICollectionViewCell based on the stock Mail.app, implemented in Swift.
+pod 'RealmSwift' - mobile database is an open source, developer-friendly alternative to CoreData and SQLite.
+pod 'SwipeCellKit' - swipeable UITableViewCell/UICollectionViewCell based on the stock Mail.app, implemented in Swift.
+pod 'ChameleonFramework' - Chameleon is a lightweight, yet powerful, color framework for iOS (Objective-C & Swift).
